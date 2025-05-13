@@ -39,5 +39,5 @@ ng serve
 Step-3 Open Web Application
 5)	Please access the web application with following URLs. 
 http://localhost:4200/
-localhost:4200/form
-localhost:4200/list
+http://localhost:4200/form
+http://localhost:4200/list
