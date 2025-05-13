@@ -1,0 +1,75 @@
+<nav class="nav-buttons">
+  <button (click)="goToList()">View Employee List</button>
+  <button (click)="goToForm()">Add Employee</button>
+</nav>
+
+<div class="employee-form-container">
+  <h2>Employee Form</h2>
+<form *ngIf="employeeForm" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div class="employee-form-group">
+      <label>Full Name:</label>
+      <input id="fullName" formControlName="fullName" type="text" />
+      <div class="error" *ngIf="employeeForm.get('fullName')?.invalid && (employeeForm.get('fullName')?.touched || employeeForm.get('fullName')?.dirty)">
+        Full Name is required.
+      </div>
+    </div>
+  
+    <div class="employee-form-group">
+      <label>Joining Date:</label>
+      <input id="joiningDate" formControlName="joiningDate" type="date" />
+      <div class="error" *ngIf="employeeForm.get('joiningDate')?.invalid && (employeeForm.get('joiningDate')?.touched || employeeForm.get('joiningDate')?.dirty)">
+        Joining Date is required.
+      </div>
+    </div>
+  
+    <div class="employee-form-group">
+      <label>Years of Service:</label>
+      <input id="yearsOfService" formControlName="yearsOfService" type="number" />
+      <div class="error" *ngIf="employeeForm.get('yearsOfService')?.invalid && (employeeForm.get('yearsOfService')?.touched || employeeForm.get('yearsOfService')?.dirty)">
+        Enter a valid number (0 or more).
+      </div>
+    </div>
+  
+    <div class="employee-form-group">
+      <label>Position:</label>
+      <select id="position" formControlName="position">
+        <option *ngFor="let pos of positions" [value]="pos">{{ pos }}</option>
+      </select>
+      <div class="error" *ngIf="employeeForm.get('position')?.invalid && (employeeForm.get('position')?.touched || employeeForm.get('position')?.dirty)">
+        Position is required.
+      </div>
+    </div>
+  
+    <div class="employee-form-group">
+      <label>Department:</label>
+      <select id="department" formControlName="department">
+        <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+      </select>
+      <div class="error" *ngIf="employeeForm.get('department')?.invalid && (employeeForm.get('department')?.touched || employeeForm.get('department')?.dirty)">
+        Department is required.
+      </div>
+    </div>
+  
+    <div class="employee-form-group">
+      <label>Project Name:</label>
+      <input id="projectName" formControlName="projectName" type="text" />
+      <div class="error" *ngIf="employeeForm.get('projectName')?.invalid && (employeeForm.get('projectName')?.touched || employeeForm.get('projectName')?.dirty)">
+        Project Name is required.
+      </div>
+    </div>
+  
+    <div class="employee-form-group">
+      <label>Proficient Skill:</label>
+      <select id="proficientSkill" formControlName="proficientSkill">
+        <option *ngFor="let skill of skills" [value]="skill">{{ skill }}</option>
+      </select>
+      <div class="error" *ngIf="employeeForm.get('proficientSkill')?.invalid && (employeeForm.get('proficientSkill')?.touched || employeeForm.get('proficientSkill')?.dirty)">
+        Proficient Skill is required.
+      </div>
+    </div>
+  
+    <button type="submit">
+      {{ editEmployee ? 'Update' : 'Add' }} Employee
+    </button>
+  </form> 
+</div> 

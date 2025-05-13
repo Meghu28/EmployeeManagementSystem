@@ -1,0 +1,42 @@
+<nav class="nav-buttons">
+  <button (click)="goToList()">View Employee List</button>
+  <button (click)="goToForm()">Add Employee</button>
+</nav>
+
+<div class="employee-list-container">
+  <h2>Employees List</h2>
+
+<button class="add-button" (click)="onAdd()">➕ Add New Employee</button>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Full Name</th>
+      <th>Joining Date</th>
+      <th>Years of Service</th>
+      <th>Position</th>
+      <th>Department</th>
+      <th>Project</th>
+      <th>Skill</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employees">
+      <td>{{emp.id}}</td>
+      <td>{{ emp.fullName }}</td>
+      <td>{{ emp.joiningDate }}</td>
+      <td>{{ emp.yearsOfService }}</td>
+      <td>{{ emp.position }}</td>
+      <td>{{ emp.department }}</td>
+      <td>{{ emp.projectName }}</td>
+      <td>{{ emp.proficientSkill }}</td>
+      <td>
+        <button (click)="onEdit(emp)">✏️ Edit</button>
+        <button (click)="onDelete(emp.id)">🗑️ Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
